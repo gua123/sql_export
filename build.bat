@@ -1,1 +1,2 @@
 pyinstaller sql_export.spec
+pyinstaller sql_export_thin.spec
