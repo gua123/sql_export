@@ -1,0 +1,9 @@
+build
+dist
+.vscode
+main.py
+test1.py
+test2.py
+params.txt
+database.txt
+instantclient_11_2
