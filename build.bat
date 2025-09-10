@@ -1,0 +1,1 @@
+pyinstaller sql_export.spec

@@ -1,0 +1,7 @@
+oracledb
+pandas
+sqlparse
+tqdm
+openpyxl
+pyinstaller
+openpyxl

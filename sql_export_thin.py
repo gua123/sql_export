@@ -82,24 +82,15 @@ def execute_query_and_export_to_excel(sql):
     connection = None
     cursor = None
     try:
-        if getattr(sys, 'frozen', False):
-            # 当前是打包后的 EXE，使用 PyInstaller 的临时目录
-            base_dir = sys._MEIPASS
-        else:
-            base_dir = os.path.abspath(".")
-        lib_dir = os.path.join(base_dir, "instantclient_11_2")
-
-        # 初始化 Oracle Client（必须用于厚模式连接）
-        oracledb.init_oracle_client(lib_dir=lib_dir)
-        logging.info("Oracle Client 初始化成功！路径：{}".format(lib_dir))
-
+        
         # 数据库连接参数配置
         db_config = read_db_config()
-       # oracle数据库版本在12.1以上可使用瘦连接和厚连接两种方式，在12.1版本以下只能使用厚连接方式
+        # oracle数据库版本在12.1以上可使用瘦连接和厚连接两种方式，在12.1版本以下只能使用厚连接方式
         connection = oracledb.connect(
             user=db_config['user'],
             password=db_config['password'],
-            dsn=db_config['dsn']
+            dsn=db_config['dsn'],
+            mode=oracledb.MODE_THIN
         )
         cursor = connection.cursor()
         cursor.arraysize = 10000        # 设置批量获取行数（优化大数据量查询）
