@@ -10,6 +10,7 @@
 - 未配置文件自动创建与提示
 
 ## 依赖环境
+当前使用的Python版本: 3.13.5
 必须安装以下Python库：
 ```bash
 pip install oracledb pandas sqlparse tqdm
@@ -20,7 +21,7 @@ pip install oracledb pandas sqlparse tqdm
 ## 快速开始指南
 ```bash
 # 1. 安装依赖
-pip install oracledb pandas sqlparse tqdm
+pip install oracledb pandas sqlparse tqdm openpyxl pyinstaller
 
 # 2. 解压Oracle Instant Client（按以下步骤）
 unzip instantclient-basic-windows.x64-11.2.0.4.0.zip
